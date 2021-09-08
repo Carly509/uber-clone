@@ -31,11 +31,11 @@ const NavOptions = () => {
        renderItem={({item}) => (
            <TouchableOpacity
             onPress={() => navigation.navigate(item.screen)}
-            style={tw`p-2 pl-6 pb-8 pt-4 bg-gray-100 m-2 w-50`}
+            style={tw`p-2 pl-6 pb-8 pt-4 bg-gray-100 m-2 w-40`}
             >
                <View >
                    <Image source={item.image}
-                    style={{width: 140, height: 140, resizeMode: 'contain'}}
+                    style={{width: 130, height: 130, resizeMode: 'contain'}}
                     />
                    <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
                    <Icon
