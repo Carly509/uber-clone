@@ -35,9 +35,10 @@ const HomeScreen = () => {
                 onPress={(data, details = null) => {
                     // 'details' is provided when fetchDetails = true
                     dispatch(setOrigin({
-                        location: details.geometry.location
+                        location: details.geometry.location,
+                        description: data.description,
                     }))
-                    console.log(data, details);
+                    dispatch(setDestination(null))
                   }}
                   fetchDetails={true}
                 enablePoweredByContainer={false}
