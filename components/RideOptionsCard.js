@@ -34,6 +34,9 @@ const data = [
   },
 ]
 
+//for surge pricing, it goes up
+const SURGE_CHARGE_RATE = 1.2;
+
 const RideOptionsCard = () => {
 
     const navigation = useNavigation()
@@ -83,15 +86,22 @@ const RideOptionsCard = () => {
                         />
                         <View style={tw`-ml-6`}>
                             <Text style={tw`text-xl font-semibold`}>{name}</Text>
-                            {/* <Text style={tw`text-sm`}>{`$${multiplier} per mile`}</Text> */}
-                            <Text style={tw`text-sm`}>{travelTimeInformation?.duration.text}</Text>
+                            <Text style={tw`text-sm`}>Travel Time</Text>
+                            {/* <Text style={tw`text-sm`}>{travelTimeInformation?.duration.text}</Text> */}
                         </View>
                         <Text style={tw`text-xl`}>$99</Text>
+                        {/* <Text style={tw`text-xl`}>
+                            { new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD'
+                            }).format(travelTimeInformation?.distance.value * SURGE_CHARGE_RATE * multiplier) / 100
+                            }                
+                        </Text> */}
                         </TouchableOpacity>
                     
                 )}
             />
-            <View>
+            <View style={tw`mt-auto border-t border-gray-200`}>
                 <TouchableOpacity
                  disabled={!selected}
                  style={tw`bg-black py-3 m-3
