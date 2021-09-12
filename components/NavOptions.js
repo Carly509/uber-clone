@@ -37,8 +37,8 @@ const NavOptions = () => {
             style={tw`p-2 pl-6 pb-8 pt-4 bg-gray-100 m-2 w-40`}
             >
             {/* if location non selected put opacity or disable both next buttons */}
-            {/* <View style={tw`${!origin && 'opacity-20'}`}> */}
-               <View >
+            <View style={tw`${!origin && 'opacity-20'}`}>
+             
                    <Image
                     source={item.image}
                     style={{width: 130, height: 130, resizeMode: 'contain'}}

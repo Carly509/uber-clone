@@ -14,13 +14,13 @@ const Map = () => {
     const mapRef = React.useRef(null);
     const dispatch = useDispatch();
 
-    // React.useEffect(() => {
-    //     if (!origin || !destination) return;
-    //         mapRef.current.fitToSuppliedMarkes([origin, destination], {
-    //             edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
-    //             animated: true,
-    //         });
-    //     }, [origin, destination])
+    React.useEffect(() => {
+        if (!origin || !destination) return;
+            mapRef.current.fitToSuppliedMarkes([origin, destination], {
+                edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+                animated: true,
+            });
+        }, [origin, destination])
 
     React.useEffect(() => {
         if (!origin || !destination) return;
@@ -43,17 +43,17 @@ const Map = () => {
             style={tw`flex-1`}
             mapType='mutedStandard'
             region={{
-                latitude: 37.78825,
-                //latitude: origin.location.lat
-                longitude: -122.4324,
-                //longitude: origin.location.long
+              
+                latitude: origin.location.lat,
+               
+                longitude: origin.location.long,
                 latitudeDelta: 0.015,
                 //latitudeDelta: 0.05 same for longitude delta
                 longitudeDelta: 0.0121,
             }}
         >
 
-           {/* {
+           {
                 origin && destination && (
                     <MapViewDirections
                         origin={origin.description}
@@ -64,20 +64,20 @@ const Map = () => {
                     />
                 )}
 
-             {origin.location &&( */}
+             {origin.location &&(
                 <Marker 
                 coordinate={{
-                    latitude: 37.78825,
-                    //latitude: origin.location.lat
-                    longitude: -122.4324,
-                    //longitude: origin.location.long
+                   
+                    latitude: origin.location.lat,
+                   
+                    longitude: origin.location.long
                 }}
                     title="origin"
-                    description="description"
-                    // description={origin.description}
+                   
+                    description={origin.description}
                     identifier="origin"
                 />
-            {/* )} */}
+             )} 
         </MapView>
     )
 }
